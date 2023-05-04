@@ -1,0 +1,47 @@
+{
+  "minecraft:recipes/redstone/tnt": {
+    "criteria": {
+      "has_gunpowder": "2023-02-10 16:26:22 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/arrow": {
+    "criteria": {
+      "has_feather": "2023-02-10 15:57:08 +0300"
+    },
+    "done": true
+  },
+  "minecraft:story/shiny_gear": {
+    "criteria": {
+      "diamond_chestplate": "2023-02-10 15:57:08 +0300",
+      "diamond_boots": "2023-02-10 15:57:08 +0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/root": {
+    "criteria": {
+      "killed_something": "2023-02-10 16:26:14 +0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/kill_a_mob": {
+    "criteria": {
+      "enderman": "2023-02-10 16:26:14 +0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/kill_all_mobs": {
+    "criteria": {
+      "skeleton": "2023-02-10 16:26:39 +0300",
+      "creeper": "2023-02-10 16:26:21 +0300",
+      "enderman": "2023-02-10 16:26:14 +0300"
+    },
+    "done": false
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "plains": "2023-02-10 15:57:10 +0300"
+    },
+    "done": false
+  }
+}

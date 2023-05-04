@@ -1,0 +1,22 @@
+{
+  "minecraft:recipes/combat/arrow": {
+    "criteria": {
+      "has_feather": "2023-02-10 16:03:21 +0300"
+    },
+    "done": true
+  },
+  "minecraft:story/shiny_gear": {
+    "criteria": {
+      "diamond_chestplate": "2023-02-10 16:03:21 +0300",
+      "diamond_boots": "2023-02-10 16:03:21 +0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "forest_hills": "2023-02-10 16:03:34 +0300",
+      "plains": "2023-02-10 16:03:24 +0300"
+    },
+    "done": false
+  }
+}
