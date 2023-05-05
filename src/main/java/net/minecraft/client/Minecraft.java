@@ -1,9 +1,6 @@
 package net.minecraft.client;
 
 import com.client.Deathwish;
-import com.client.event.events.ClientTick;
-import com.client.gui.MainMenu;
-import com.client.module.ModuleManager;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Queues;
 import com.google.common.collect.Sets;
@@ -39,9 +36,6 @@ import java.util.UUID;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
@@ -522,7 +516,7 @@ public class Minecraft implements IThreadListener, ISnooperInfo
      */
     private void startGame() throws LWJGLException, IOException
     {
-        Deathwish.INSTANCE.startup();
+        Deathwish.startup();
         this.gameSettings = new GameSettings(this, this.mcDataDir);
         this.field_191950_u = new CreativeSettings(this, this.mcDataDir);
         this.defaultResourcePacks.add(this.mcDefaultResourcePack);
@@ -608,7 +602,7 @@ public class Minecraft implements IThreadListener, ISnooperInfo
         this.checkGLError("Post startup");
         this.ingameGUI = new GuiIngame(this);
 
-        Deathwish.INSTANCE.startup();
+        Deathwish.startup();
 
         if (this.serverName != null)
         {
@@ -1125,7 +1119,6 @@ public class Minecraft implements IThreadListener, ISnooperInfo
     {
         try
         {
-            Deathwish.INSTANCE.shutdown();
             LOGGER.info("Stopping!");
 
             try
@@ -2018,8 +2011,6 @@ public class Minecraft implements IThreadListener, ISnooperInfo
             this.myNetworkManager.processReceivedPackets();
         }
 
-        ClientTick event = new ClientTick();
-        event.call();
 
         this.mcProfiler.endSection();
         this.systemTime = getSystemTime();
@@ -2069,7 +2060,7 @@ public class Minecraft implements IThreadListener, ISnooperInfo
 
                 if (this.currentScreen == null)
                 {
-                    Deathwish.INSTANCE.moduleManager.onKey(i);
+                    Deathwish.keyPress(i);
                     if (i == 1)
                     {
                         this.displayInGameMenu();

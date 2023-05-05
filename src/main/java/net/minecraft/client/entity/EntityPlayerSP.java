@@ -4,8 +4,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.client.Deathwish;
-import com.client.event.events.EventUpdate;
-import com.client.module.ModuleManager;
+import com.client.events.EventType;
+import com.client.events.listeners.EventUpdate;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.ElytraSound;
@@ -234,8 +234,6 @@ public class EntityPlayerSP extends AbstractClientPlayer
      */
     public void onUpdate()
     {
-        EventUpdate event = new EventUpdate();
-        event.call();
 
         if (this.world.isBlockLoaded(new BlockPos(this.posX, 0.0D, this.posZ)))
         {
@@ -264,6 +262,10 @@ public class EntityPlayerSP extends AbstractClientPlayer
      */
     private void onUpdateWalkingPlayer()
     {
+        EventUpdate event = new EventUpdate();
+        event.setType(EventType.PRE);
+        Deathwish.onEvent(event);
+
         boolean flag = this.isSprinting();
 
         if (flag != this.serverSprintState)

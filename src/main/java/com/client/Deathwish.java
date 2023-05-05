@@ -1,39 +1,43 @@
 package com.client;
 
 import com.client.discord.DiscordRP;
-import com.client.event.EventManager;
-import com.client.event.EventTarget;
-import com.client.event.impl.EventTick;
-import com.client.module.ModuleManager;
+import com.client.events.Event;
+import com.client.module.MOVEMENT.Fly;
+import com.client.module.Module;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.Display;
 
-public class Deathwish {
-    public ModuleManager moduleManager;
-    public static String name = "Deathwish premium";
-    public EventManager eventManager;
-    public Minecraft mc = Minecraft.getMinecraft();
-    public static Deathwish INSTANCE = new Deathwish();
-    DiscordRP discordRP = new DiscordRP();
+import java.util.concurrent.CopyOnWriteArrayList;
 
-    public void startup(){
-        moduleManager = new ModuleManager();
-        eventManager = new EventManager();
-        eventManager.register(this);
+public class Deathwish {
+    public static String name = "Deathwish premium";
+    public Minecraft mc = Minecraft.getMinecraft();
+
+    public static CopyOnWriteArrayList<Module> modules = new CopyOnWriteArrayList<Module>();
+    static DiscordRP discordRP = new DiscordRP();
+
+    public static void startup(){
         Display.setTitle(name);
         discordRP.start();
 
+        modules.add(new Fly());
+
     }
 
-    public void shutdown(){
-        eventManager.unregister(this);
-        discordRP.shutdown();
+    public static void onEvent(Event event){
+        for (Module module : modules) {
+            if(!module.isToggled()){
+                continue;
+            }
+            module.onEvent(event);
+        }
     }
 
-    @EventTarget
-    public void onTick(EventTick eventTick){
-        if(mc.gameSettings.keyBindSprint.isPressed()){
-            moduleManager.sprint.toggled();
+    public static void keyPress(int key){
+        for (Module module : modules) {
+            if(module.getKey() == key){
+                module.toggle();
+            }
         }
     }
 }

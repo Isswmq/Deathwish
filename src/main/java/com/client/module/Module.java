@@ -1,89 +1,92 @@
 package com.client.module;
 
-import com.client.Deathwish;
+import com.client.events.Event;
 import net.minecraft.client.Minecraft;
 
 public class Module {
 
-    public String name, description;
-    public boolean enabled;
-    public int keyCode;
-    public Category category;
-
-
     public Minecraft mc = Minecraft.getMinecraft();
+    private String name, description;
+    private boolean toggled;
+    private int key;
+    private Category category;
 
-    public enum Category{
-        COMBAT,
-        VISUALS,
-        MOVEMENT,
-        PLAYER,
-        RENDER,
-        MISC
-    }
 
     public Module(String name, String description, int key, Category category){
         this.name = name;
         this.description = description;
-        this.keyCode = key;
+        this.key = key;
         this.category = category;
+        toggled = false;
 
-        enabled = true;
     }
 
-    public void onEnabled(){
-        Deathwish.INSTANCE.eventManager.register(this);
-    }
-    public void onDisable(){
-        Deathwish.INSTANCE.eventManager.unregister(this);
-    }
-    public void onUpdate(){}
-    public void onRender(){}
+    public void onEvent(Event event){
 
-
-    public void enable(){
-        enabled = !enabled;
-        if(enabled){
-            this.onEnabled();
-        }else{
-            this.onDisable();
-        }
     }
 
-    public void setEnabled(boolean toggled){
-        this.enabled = toggled;
-        if(this.enabled){
-            onEnabled();
-        }else{
+    public void toggle(){
+        toggled = !toggled;
+        if(toggled){
+            onEnable();
+        }else {
             onDisable();
         }
     }
 
-    public void toggle(){
-        setEnabled(!this.enabled);
+    public void onEnable(){
+
     }
 
-    public void toggled(){
-        setEnabled(!this.enabled);
+    public void onDisable(){
+
+    }
+
+    public void onUpdate(){
+
+    }
+
+    public void onRender(){
+
+    }
+
+    public Minecraft getMc() {
+        return mc;
+    }
+
+    public void setMc(Minecraft mc) {
+        this.mc = mc;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getDescription(){
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
         return description;
     }
 
-    public int getKeyCode() {
-        return keyCode;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Category getCategory() {
-        return category;
+    public boolean isToggled() {
+        return toggled;
     }
 
-    public boolean isEnabled(){
-        return enabled;
+    public void setToggled(boolean toggled) {
+        this.toggled = toggled;
+    }
+
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
     }
 }

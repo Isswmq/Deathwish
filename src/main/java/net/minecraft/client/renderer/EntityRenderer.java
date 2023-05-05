@@ -1,8 +1,5 @@
 package net.minecraft.client.renderer;
 
-import com.client.Deathwish;
-import com.client.gui.MainMenu;
-import com.client.module.ModuleManager;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.google.gson.JsonSyntaxException;
@@ -1909,8 +1906,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
             Reflector.callVoid(Reflector.ForgeHooksClient_dispatchRenderLast, renderglobal, partialTicks);
         }
 
-        this.mc.mcProfiler.endStartSection("hand");
-
+        this.mc.mcProfiler.endStartSection("hand");;
         //Deathwish.moduleManager.onRender();
 
 

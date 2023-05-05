@@ -1,17 +1,17 @@
 package com.client.module.MOVEMENT;
 
-import com.client.event.EventTarget;
+import com.client.module.Category;
 import com.client.module.Module;
 import org.lwjgl.input.Keyboard;
 
 public class AutoSprint extends Module {
     public AutoSprint(){
-        super("AutoSprint", "Auto ctrl sprint",Keyboard.KEY_P, Category.MOVEMENT);
+        super("AutoSprint", "Auto ctrl sprint",25, Category.MOVEMENT);
     }
 
-    @EventTarget
-    public void onUpdate(EventTarget event){
-        if(this.isEnabled() && !mc.player.isSneaking() && !mc.player.isAirBorne){
+    @Override
+    public void onEnable() {
+        if(this.isToggled() && !mc.player.isSneaking() && !mc.player.isAirBorne){
             mc.player.setSprinting(true);
         }
     }
