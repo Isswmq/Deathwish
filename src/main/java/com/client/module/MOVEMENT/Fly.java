@@ -9,6 +9,7 @@ public class Fly extends Module {
 
     public Fly() {
         super("fly", "Fly without creative", 25, Category.MOVEMENT);
+        System.out.println("Creating new Fly module: " + this.hashCode());
     }
 
     public void onEnable(){

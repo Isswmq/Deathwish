@@ -11,7 +11,7 @@ import java.awt.*;
 
 public class GuiButton extends Gui
 {
-    public static com.client.util.font.FontRenderer renderer = new com.client.util.font.FontRenderer("font2", 20, Font.PLAIN, true, true);
+    //public static com.client.util.font.FontRenderer renderer = new com.client.util.font.FontRenderer("font2", 20, Font.PLAIN, true, true);
 
     protected static final ResourceLocation BUTTON_TEXTURES = new ResourceLocation("textures/gui/widgets.png");
 
@@ -109,7 +109,7 @@ public class GuiButton extends Gui
                 speed = 22;
             }
 
-            renderer.drawCenteredString(this.displayString, this.xPosition + this.width / 2 - speed, this.yPosition + (this.height - 8) / 2, j);
+            com.client.util.font.FontRenderer.renderer.drawCenteredString(this.displayString, this.xPosition + this.width / 2 - speed, this.yPosition + (this.height - 8) / 2, j);
             //this.drawCenteredString(fr ,this.displayString, this.xPosition + this.width / 2, this.yPosition + (this.height - 8) / 2, j);
         }
     }

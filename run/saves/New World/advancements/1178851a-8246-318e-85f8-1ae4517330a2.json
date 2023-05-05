@@ -2,6 +2,7 @@
   "minecraft:adventure/adventuring_time": {
     "criteria": {
       "desert_hills": "2023-02-12 11:37:55 +0300",
+      "savanna": "2023-05-05 22:59:13 +0300",
       "desert": "2023-02-12 11:37:40 +0300"
     },
     "done": false

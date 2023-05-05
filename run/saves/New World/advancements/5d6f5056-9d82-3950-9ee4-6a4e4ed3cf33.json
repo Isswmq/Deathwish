@@ -1,0 +1,11 @@
+{
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "savanna": "2023-05-05 22:32:28 +0300",
+      "plains": "2023-05-05 22:32:19 +0300",
+      "river": "2023-05-05 22:32:49 +0300",
+      "desert": "2023-05-05 22:32:27 +0300"
+    },
+    "done": false
+  }
+}

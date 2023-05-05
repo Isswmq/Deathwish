@@ -12,6 +12,8 @@ import java.util.List;
 
 
 public class FontRenderer extends CFont {
+
+    public static FontRenderer renderer = new FontRenderer("font2", 20, Font.PLAIN, true, true);
     protected CFont.CharData[] boldChars = new CFont.CharData[256];
     protected CFont.CharData[] italicChars = new CFont.CharData[256];
     protected CFont.CharData[] boldItalicChars = new CFont.CharData[256];

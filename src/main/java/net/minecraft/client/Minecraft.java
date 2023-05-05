@@ -516,7 +516,7 @@ public class Minecraft implements IThreadListener, ISnooperInfo
      */
     private void startGame() throws LWJGLException, IOException
     {
-        Deathwish.startup();
+        //Deathwish.startup();
         this.gameSettings = new GameSettings(this, this.mcDataDir);
         this.field_191950_u = new CreativeSettings(this, this.mcDataDir);
         this.defaultResourcePacks.add(this.mcDefaultResourcePack);
