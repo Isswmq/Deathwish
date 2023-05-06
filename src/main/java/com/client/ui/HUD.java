@@ -10,6 +10,8 @@ import net.minecraft.client.gui.ScaledResolution;
 import optifine.FontUtils;
 
 import java.awt.*;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Objects;
 
 import static net.minecraft.client.gui.Gui.drawRect;
@@ -38,6 +40,8 @@ public class HUD {
         }finally {
             FontRenderer.renderer.drawString(text, 10, 6.5, rainbow(counter[0] * 300));
         }
+
+        Deathwish.modules.sort(Comparator.comparingInt(m -> mc.fontRendererObj.getStringWidth(((Module)m).getName())).reversed());
 
         for (Module module : Deathwish.modules){
             if(module.isToggled()) {

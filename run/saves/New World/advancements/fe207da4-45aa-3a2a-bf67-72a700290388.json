@@ -115,7 +115,9 @@
   },
   "minecraft:adventure/adventuring_time": {
     "criteria": {
-      "savanna": "2023-02-10 17:12:17 +0300"
+      "savanna": "2023-02-10 17:12:17 +0300",
+      "plains": "2023-05-06 15:14:31 +0300",
+      "river": "2023-05-06 15:14:44 +0300"
     },
     "done": false
   }

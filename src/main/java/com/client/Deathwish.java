@@ -2,8 +2,10 @@ package com.client;
 
 import com.client.discord.DiscordRP;
 import com.client.events.Event;
+import com.client.module.MOVEMENT.AutoSprint;
 import com.client.module.MOVEMENT.Fly;
 import com.client.module.Module;
+import com.client.module.VISUALS.FullBright;
 import com.client.ui.HUD;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.Display;
@@ -23,6 +25,8 @@ public class Deathwish {
         discordRP.start();
 
         modules.add(new Fly());
+        modules.add(new AutoSprint());
+        modules.add(new FullBright());
 
     }
 

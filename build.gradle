@@ -7,13 +7,17 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven {
+        name 'MinecraftForge'
+        url 'https://files.minecraftforge.net/maven'
+    }
 }
 
 dependencies {
     implementation fileTree('libraries')
+    implementation 'net.minecraftforge:forge:1.12.2-14.23.5.2859'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-
 }
 
 test {
